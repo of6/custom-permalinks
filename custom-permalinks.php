@@ -3,10 +3,9 @@
 Plugin Name: Custom Permalinks
 Plugin URI: http://atastypixel.com/blog/wordpress/plugins/custom-permalinks/
 Donate link: http://atastypixel.com/blog/wordpress/plugins/custom-permalinks/
-Description: Set custom permalinks on a per-post basis
-Version: 0.7.19
-Author: Michael Tyson
-Author URI: http://atastypixel.com/blog
+Description: Set custom permalinks on a per-post basis (updated for wordpress 3.5+)
+Version: 0.7.2
+Author: Michael Tyson (OF-6)
 */
 
 /*  Copyright 2008 Michael Tyson <mike@tyson.id.au>
@@ -314,7 +313,7 @@ function custom_permalink_get_sample_permalink_html($html, $id, $new_title, $new
     }
 
   return '<strong>' . __('Permalink:') . "</strong>\n" . $content .
-       ( isset($view_post) ? "<span id='view-post-btn'><a href='$permalink' class='button' target='_blank'>$view_post</a></span>\n" : "" );
+       ( isset($view_post) ? "<span id='view-post-btn'><a href='$permalink' class='button button-small' target='_blank'>$view_post</a></span>\n" : "" );
 }
 
 
@@ -417,10 +416,12 @@ function custom_permalinks_form($permalink, $original="", $renderContainers=true
     <td>
   <?php endif; ?>
       <?php echo home_url() ?>/
-      <input type="text" class="text" value="<?php echo htmlspecialchars($permalink ? urldecode($permalink) : urldecode($original)) ?>"
-        style="width: 250px; <?php if ( !$permalink ) echo 'color: #ddd;' ?>"
-        onfocus="if ( this.style.color = '#ddd' ) { this.style.color = '#000'; }"
-        onblur="document.getElementById('custom_permalink').value = this.value; if ( this.value == '' || this.value == '<?php echo htmlspecialchars(urldecode($original)) ?>' ) { this.value = '<?php echo htmlspecialchars(urldecode($original)) ?>'; this.style.color = '#ddd'; }"/>
+      <span id="editable-post-name" title="Click to edit this part of the permalink">
+        <input type="text" id="new-post-slug" class="text" value="<?php echo htmlspecialchars($permalink ? urldecode($permalink) : urldecode($original)) ?>"
+          style="width: 250px; <?php if ( !$permalink ) echo 'color: #ddd;' ?>"
+          onfocus="if ( this.style.color = '#ddd' ) { this.style.color = '#000'; }"
+          onblur="document.getElementById('custom_permalink').value = this.value; if ( this.value == '' || this.value == '<?php echo htmlspecialchars(urldecode($original)) ?>' ) { this.value = '<?php echo htmlspecialchars(urldecode($original)) ?>'; this.style.color = '#ddd'; }"/>
+      </span>
   <?php if ( $renderContainers ) : ?>
       <br />
       <small><?php _e('Leave blank to disable', 'custom-permalink') ?></small>

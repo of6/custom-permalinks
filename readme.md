@@ -1,10 +1,10 @@
-#Custom Permalinks
+#Custom Permalinks plugin for WordPress
 
-Donate link: http://atastypixel.com/blog/wordpress/plugins/custom-permalinks/
-Tags: permalink, url, link, address, custom, redirect
-Requires at least: 2.6
-Tested up to: 4.1
-Stable tag: 0.7.20
+Requires at least: WordPress 2.6
+
+Tested up to: WordPress 4.1
+
+Current Version: 0.7.20
 
 Set custom permalinks on a per-post, per-tag or per-category basis.
 
@@ -29,12 +29,12 @@ within that category.
 
 ##Changelog
 
-= 0.7.20 =
+= 0.7.20 = (OF6)
 
  * Updated Roles and Capabilities from depreciated numerical to label capabilities
  * Added css/html to match WP 3.5+ layout
 
-= 0.7.19 =
+= 0.7.19 = (Michael Tyson : http://atastypixel.com/blog/wordpress/plugins/custom-permalinks/)
 
   * WP 3.9 compatibility fix, thanks to Sowmedia
 
